@@ -1,0 +1,46 @@
+flowchart TD
+    subgraph Stage1[repository-auditor]
+        A1[ARCHITECTURE_AUDIT.md]
+        A2[DEAD_CODE_REPORT.md]
+        A3[DUPLICATION_REPORT.md]
+        A4[COMPLEXITY_REPORT.md]
+        A5[NAMING_CONVENTIONS.md]
+        A6[PROJECT_STRUCTURE.md]
+        A7[TYPE_SAFETY_REPORT.md]
+        A8[DEPENDENCY_AUDIT.md]
+        A9[REPOSITORY_SCORECARD.md]
+    end
+
+    subgraph Stage2[repository-surgeon]
+        B1[REFACTOR_LOG.md]
+        B2[CHANGESET.md]
+        B3[REFACTOR_SUMMARY.md]
+        B4[POST_REFACTOR_STRUCTURE.md]
+    end
+
+    subgraph Stage3[documentation-architect]
+        C1[README.md]
+        C2[ARCHITECTURE.md]
+        C3[COMPONENT_GUIDE.md]
+        C4[SERVICE_GUIDE.md]
+        C5[UTILITY_GUIDE.md]
+        C6[DEPENDENCY_MAP.md]
+        C7[API_REFERENCE.md]
+        C8[ONBOARDING_GUIDE.md]
+        C9[CONTRIBUTING.md]
+        C10[TROUBLESHOOTING.md]
+    end
+
+    subgraph Stage4[repository-guardian]
+        D1[FINAL_REVIEW.md]
+        D2[QUALITY_SCORECARD.md]
+        D3[REGRESSION_REPORT.md]
+        D4[FINAL_APPROVAL.md]
+    end
+
+    Stage1 --> Stage2
+    Stage2 --> Stage3
+    Stage1 -.also read by.-> Stage3
+    Stage1 -.also read by.-> Stage4
+    Stage2 -.also read by.-> Stage4
+    Stage3 --> Stage4

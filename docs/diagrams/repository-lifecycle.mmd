@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Unaudited
+    Unaudited --> Audited: repository-auditor completes
+    Audited --> Refactored: repository-surgeon completes
+    Refactored --> Documented: documentation-architect completes
+    Documented --> Reviewed: repository-guardian completes
+    Reviewed --> Approved: FINAL_APPROVAL.md = approved
+    Reviewed --> ConditionallyApproved: FINAL_APPROVAL.md = conditionally-approved
+    Reviewed --> Rejected: FINAL_APPROVAL.md = rejected
+    ConditionallyApproved --> Refactored: conditions resolved, re-enter pipeline
+    Rejected --> Audited: blocking issues addressed, re-enter pipeline
+    Approved --> [*]

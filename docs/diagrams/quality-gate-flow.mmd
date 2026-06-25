@@ -1,0 +1,10 @@
+flowchart TD
+    Start([Stage begins]) --> Run[Stage executes its workflow]
+    Run --> Check{Quality gate met?}
+    Check -->|Yes| Record[Record outputs + quality score<br/>in WORKFLOW_STATE.md]
+    Record --> Next{More stages remaining?}
+    Next -->|Yes| Advance[Advance to next stage]
+    Advance --> Start
+    Next -->|No| Done([Pipeline complete])
+    Check -->|No| Fail[Write FAILURE_REPORT.md<br/>Record failure in WORKFLOW_STATE.md]
+    Fail --> Halt([Pipeline halts —<br/>human or re-run decides next step])

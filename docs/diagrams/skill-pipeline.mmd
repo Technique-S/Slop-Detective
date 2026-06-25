@@ -1,0 +1,9 @@
+flowchart LR
+    O[repository-orchestrator] -.coordinates.-> A
+    O -.coordinates.-> B
+    O -.coordinates.-> C
+    O -.coordinates.-> D
+
+    A[repository-auditor<br/>read-only] --> B[repository-surgeon<br/>safe refactor]
+    B --> C[documentation-architect<br/>accurate docs]
+    C --> D[repository-guardian<br/>independent review]
