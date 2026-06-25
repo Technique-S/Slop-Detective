@@ -1,0 +1,46 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "username": "repository-excellence-suite",
+  "skills": {
+    "paths": [
+      ".opencode/skills",
+      "skills",
+      "orchestrator"
+    ]
+  },
+  "agent": {
+    "repository-orchestrator": {
+      "description": "Single entry point for the Repository Excellence Suite. Runs the full audit-refactor-document-review pipeline.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "prompt": "You are the orchestrator for the Repository Excellence Suite. When invoked, run the four-stage pipeline: repository-auditor (read-only audit), repository-surgeon (evidence-based refactoring), documentation-architect (grounded documentation), repository-guardian (independent final review). Enforce quality gates between each stage. Never let a stage skip ahead of its prerequisites. Maintain WORKFLOW_STATE.md as the single source of truth for pipeline progress."
+    }
+  },
+  "command": {
+    "audit": {
+      "description": "Run repository-auditor on the current project",
+      "agent": "repository-auditor",
+      "template": "Run the repository auditor on this project. Produce all 9 reports and the scorecard."
+    },
+    "refactor": {
+      "description": "Run repository-surgeon using existing audit reports",
+      "agent": "repository-surgeon",
+      "template": "Run the repository surgeon on this project using existing audit reports. Only make changes backed by specific audit findings."
+    },
+    "document": {
+      "description": "Run documentation-architect after refactoring",
+      "agent": "documentation-architect",
+      "template": "Run the documentation architect on this project. Document the code as it actually exists right now."
+    },
+    "review": {
+      "description": "Run repository-guardian for final independent verification",
+      "agent": "repository-guardian",
+      "template": "Run the repository guardian as an independent final review of this project. Re-verify everything from scratch."
+    },
+    "pipeline": {
+      "description": "Run the full Repository Excellence pipeline (audit → refactor → document → review)",
+      "agent": "repository-orchestrator",
+      "template": "Run the full Repository Excellence Suite pipeline on this project: audit, refactor, document, and review."
+    }
+  }
+}

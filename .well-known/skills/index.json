@@ -1,0 +1,31 @@
+{
+  "source": "https://github.com/Technique-S/Slop-Detective",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "name": "repository-auditor",
+      "url": "https://raw.githubusercontent.com/Technique-S/Slop-Detective/main/skills/repository-auditor/SKILL.md",
+      "description": "Complete read-only codebase investigation producing 9 structured reports and a scorecard."
+    },
+    {
+      "name": "repository-surgeon",
+      "url": "https://raw.githubusercontent.com/Technique-S/Slop-Detective/main/skills/repository-surgeon/SKILL.md",
+      "description": "Safe, evidence-based refactoring from audit findings with build/test verification."
+    },
+    {
+      "name": "documentation-architect",
+      "url": "https://raw.githubusercontent.com/Technique-S/Slop-Detective/main/skills/documentation-architect/SKILL.md",
+      "description": "Produces comprehensive, accurate documentation grounded in post-refactor code."
+    },
+    {
+      "name": "repository-guardian",
+      "url": "https://raw.githubusercontent.com/Technique-S/Slop-Detective/main/skills/repository-guardian/SKILL.md",
+      "description": "Final independent Staff Engineer-style review re-verifying all pipeline output."
+    },
+    {
+      "name": "repository-orchestrator",
+      "url": "https://raw.githubusercontent.com/Technique-S/Slop-Detective/main/skills/repository-orchestrator/SKILL.md",
+      "description": "Single entry point coordinating all four pipeline stages."
+    }
+  ]
+}

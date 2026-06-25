@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "name": "repository-excellence-suite",
+  "version": "1.0.0",
+  "description": "End-to-end repository quality pipeline: audit, refactor, document, and review — all from one command.",
+  "author": "Kazi",
+  "license": "MIT",
+  "platforms": ["opencode", "claude-code", "gemini-cli", "copilot-cli", "cursor", "windsurf"],
+  "skills": {
+    "repository-auditor": {
+      "path": "skills/repository-auditor",
+      "description": "Complete read-only codebase investigation producing 9 structured reports and a scorecard. Use for 'audit this repo', 'code review', 'health check'."
+    },
+    "repository-surgeon": {
+      "path": "skills/repository-surgeon",
+      "description": "Safe, evidence-based refactoring from audit findings. Use for 'clean up', 'refactor', 'fix code quality'."
+    },
+    "documentation-architect": {
+      "path": "skills/documentation-architect",
+      "description": "Produces comprehensive, accurate documentation grounded in post-refactor code. Use for 'write docs', 'create README', 'document this'."
+    },
+    "repository-guardian": {
+      "path": "skills/repository-guardian",
+      "description": "Final independent Staff Engineer-style review of pipeline output. Use for 'verify', 'final review', 'sanity check'."
+    },
+    "repository-orchestrator": {
+      "path": "orchestrator",
+      "description": "Single entry point that coordinates all four stages. Use for 'run the full pipeline', 'make this production-ready'."
+    }
+  }
+}
